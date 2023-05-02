@@ -17,7 +17,7 @@ export AWS_SESSION_TOKEN=<temp-session-token>
 export AWS_DEFAULT_REGION=us-west-2
 ```
 
-Alternatively, you can also export your profile 
+ Alternatively, you can also export your profile 
 
 ```
 export AWS_PROFILE=<profile_name>
@@ -38,27 +38,27 @@ cd git/registry-sweepers/terraform/
 4. Execute the following TF commands :
 
 ```
-terraform init"
+terraform init
 ```
 
 ```
-terraform validate"
+terraform validate
 ```
 
 ```
-terraform plan -var-file=./tfvars/pub_dev.tfvars"
+terraform plan
 ```
 
 ```
-terraform apply -var-file=./tfvars/pub_dev.tfvars -auto-approve"
+terraform apply
 ```
 
 ```
-terraform destroy"
+terraform destroy
 ```
 
 **Note:**
 
 1. You should only pass the **-auto-approve** flag while running `terraform apply` and `terraform destroy` if you've already reviewed the changes and are sure you want those changes to get applied.
 
-2. Your assumed IAM role may or may not have permissions create resources withing AWS in which case you will get a `AuthorizationError`.
+2. Your assumed IAM role may or may not have permissions to create resources within AWS in which case you will get a `AuthorizationError`.
