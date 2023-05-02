@@ -26,13 +26,13 @@ export AWS_PROFILE=<profile_name>
 2. Clone this repo into your local git repo :
 
 ```
-git clone https://github.com/NASA-PDS/registry-sweepers.git
+git clone https://github.com/NASA-PDS/monitoring.git
 ```
 
 3. Change current working directory to your local git working directory :
 
 ```
-cd git/registry-sweepers/terraform/
+cd monitoring/terraform/
 ```
 
 4. Execute the following TF commands :
