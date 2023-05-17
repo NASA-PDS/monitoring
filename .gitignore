@@ -104,3 +104,10 @@ typescript
 !.gitattributes
 !.gitignore
 !.gitkeep
+
+# Local .terraform files and directories
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
