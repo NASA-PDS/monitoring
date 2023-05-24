@@ -23,7 +23,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: ${{ secrets.AWS_REGION }}
         role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
 
     - name: Setup Terraform
@@ -41,7 +41,7 @@ jobs:
       working-directory: ${{ env.working-directory }}
       run: terraform plan -input=false -no-color
       continue-on-error:  true
-    
+
     - name: Terraform Plan Status
       id : plan_status
       working-directory: ${{ env.working-directory }}
