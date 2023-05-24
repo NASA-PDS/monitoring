@@ -25,8 +25,7 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-region: us-west-2
-        role-to-assume: ${{ secrets.ROLE_NAME }}
-        role-session-name: MySessionName
+        role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
