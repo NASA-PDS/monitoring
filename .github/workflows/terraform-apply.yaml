@@ -1,14 +1,13 @@
-name: 'Terraform-Plan'
+name: 'Terraform-Apply'
 
 on:
   push:
     branches:
       - main
-  pull_request:
 
 permissions:
-  id-token: write
-  contents: read
+  id-token: write  # required to use OIDC authentication
+  contents: read # required to checkout the code from the repo
 
 jobs:
   deploy:
@@ -24,7 +23,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        aws-region: us-west-2
+        aws-region: ${{ env.AWS_REGION }}
         role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
 
     - name: Setup Terraform
