@@ -29,7 +29,7 @@ resource "aws_cloudwatch_metric_alarm" "provenance_alarm" {
 
 resource "aws_cloudwatch_log_group" "provenance_logs" {
   name              = "/ecs/pds-en-provenance-failure-logs"
-  retention_in_days = 0
+  retention_in_days = 7
 
   tags = {
     Alfa    = var.node_name_abbr
