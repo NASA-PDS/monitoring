@@ -14,6 +14,7 @@ resource "aws_cloudwatch_metric_alarm" "provenance_alarm" {
   ok_actions                            = var.ok_actions
   insufficient_data_actions             = var.insufficient_data_actions
   evaluate_low_sample_count_percentiles = "evaluate"
+  # evaluate_low_sample_count_percentiles = "evaluate" -- This option can not be applied with statistic Sum. This option is enabled only for percentile statistics.
 
   depends_on = [
     aws_sns_topic.provenance_sns_topic,
