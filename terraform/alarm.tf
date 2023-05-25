@@ -1,19 +1,18 @@
 resource "aws_cloudwatch_metric_alarm" "provenance_alarm" {
-  alarm_name                            = "provenance-script-failure"
-  comparison_operator                   = "GreaterThanOrEqualToThreshold"
-  datapoints_to_alarm                   = 1
-  evaluation_periods                    = 1
-  metric_name                           = "provenance_failures"
-  namespace                             = "pds_en_registry_provenance"
-  period                                = 300
-  statistic                             = "Sum"
-  threshold                             = 1
-  treat_missing_data                    = "ignore"
-  alarm_description                     = "Provenance script failure alarm. Check logs at /ecs/pds-en-provenance-failure-logs"
-  alarm_actions                         = [aws_sns_topic.provenance_sns_topic.arn]
-  ok_actions                            = var.ok_actions
-  insufficient_data_actions             = var.insufficient_data_actions
-  evaluate_low_sample_count_percentiles = "evaluate"
+  alarm_name                = "provenance-script-failure"
+  comparison_operator       = "GreaterThanOrEqualToThreshold"
+  datapoints_to_alarm       = 1
+  evaluation_periods        = 1
+  metric_name               = "provenance_failures"
+  namespace                 = "pds_en_registry_provenance"
+  period                    = 300
+  statistic                 = "Sum"
+  threshold                 = 1
+  treat_missing_data        = "ignore"
+  alarm_description         = "Provenance script failure alarm. Check logs at /ecs/pds-en-provenance-failure-logs"
+  alarm_actions             = [aws_sns_topic.provenance_sns_topic.arn]
+  ok_actions                = var.ok_actions
+  insufficient_data_actions = var.insufficient_data_actions
   # evaluate_low_sample_count_percentiles = "evaluate" -- This option can not be applied with statistic Sum. This option is enabled only for percentile statistics.
 
   depends_on = [
