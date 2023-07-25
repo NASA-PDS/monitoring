@@ -4,16 +4,6 @@ variable "aws_region" {
   description = "AWS Region"
 }
 
-# variable "aws_shared_credentials_file" {
-#   default = "~/.aws/credentials"
-#   description = "AWS shared credentials file"
-# }
-
-# variable "aws_profile" {
-#   default = "default"
-#   description = "AWS profile"
-#}
-
 variable "node_name_abbr" {
   type        = string
   default     = "en"
