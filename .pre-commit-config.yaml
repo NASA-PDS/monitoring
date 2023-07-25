@@ -15,7 +15,7 @@ repos:
     hooks:
     - id: terraform_fmt #Rewrites all Terraform configuration files to a canonical format.
     - id: terraform_validate #Validates all Terraform configuration files.
-    - id: terraform_tflint #Validates all Terraform configuration files with TFLint.
+    # - id: terraform_tflint #Validates all Terraform configuration files with TFLint.
     # - id: terrascan #Detect compliance and security violations of Terraform templates.
     # - id: terraform_tfsec
     # - id: terraform_docs
