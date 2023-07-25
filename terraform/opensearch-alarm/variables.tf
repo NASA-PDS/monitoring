@@ -64,12 +64,6 @@ variable "treat_missing_data" {
   description = "Value for how to treat missing data"
 }
 
-variable "alarm_actions" {
-  type        = list(any)
-  default     = []
-  description = "List of actions to perform when the alarm state is triggered"
-}
-
 variable "insufficient_data_actions" {
   type        = list(any)
   default     = []
