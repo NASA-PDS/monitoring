@@ -24,4 +24,3 @@ resource "aws_cloudwatch_metric_alarm" "es_alarm" {
     ClientId   = var.client_id
   }
 }
-
