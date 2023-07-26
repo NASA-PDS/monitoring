@@ -23,4 +23,9 @@ resource "aws_cloudwatch_metric_alarm" "es_alarm" {
     DomainName = var.alarms[count.index]["domain_name"]
     ClientId   = var.client_id
   }
+  tags = {
+    Alfa    = var.alarms[count.index]["node_abbr"]
+    Bravo   = var.alarms[count.index]["venue"]
+    Charlie = var.alarms[count.index]["component"]
+  }
 }
