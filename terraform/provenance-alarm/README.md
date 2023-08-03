@@ -6,7 +6,7 @@ The purpose of this cloudwatch metric alarm is to monitor provenance script fail
 - Terraform
 - AWS CLI (optional)
 
-## Steps to Deploy Provenance CloudWatch Alarm using Terraform
+## Steps to Deploy Provenance CloudWatch Alarm using Terraform (locally)
 
 1. Open a terminal and set the following environment variables with correct values associated with your AWS account :
 
@@ -17,7 +17,7 @@ export AWS_SESSION_TOKEN=<temp-session-token>
 export AWS_DEFAULT_REGION=us-west-2
 ```
 
- Alternatively, you can also export your profile 
+ Alternatively, you can also export your profile
 
 ```
 export AWS_PROFILE=<profile_name>
@@ -32,7 +32,7 @@ git clone https://github.com/NASA-PDS/monitoring.git
 3. Change current working directory to your local git working directory :
 
 ```
-cd monitoring/terraform/
+cd monitoring/terraform/provenance-alarm
 ```
 
 4. Execute the following TF commands :
@@ -51,10 +51,6 @@ terraform plan
 
 ```
 terraform apply
-```
-
-```
-terraform destroy
 ```
 
 **Note:**
