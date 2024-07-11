@@ -34,14 +34,14 @@ jobs:
                 run:
                   curl --get "https://pds.nasa.gov/services/search/search?wt=json&q=product_class:Product_Collection" | json_pp > tmp.txt
                   if [ $? -ne  "0" ]; then
-                      echo "ERROR: LEGACY REGISTRY HAS CRASHED"
+                      echo "ERROR - LEGACY REGISTRY HAS CRASHED"
                       exit 1
                   fi
                   
-                  numfound=$(egrep "numFound" tmp.txt | awk -F: '{print $NF}')
+                  numfound=$(egrep "numFound" tmp.txt | awk -F':' '{print $NF}')
                   echo $numfound
                   if [ "$numfound" == " 0," ]; then
-                      echo "ERROR: LEGACY REGISTRY HAS NO DATA"
+                      echo "ERROR - LEGACY REGISTRY HAS NO DATA"
                       exit 1
                   fi
                   
