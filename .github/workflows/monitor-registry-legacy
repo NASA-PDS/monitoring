@@ -1,0 +1,49 @@
+# 🏃‍♀️ Continuous Integration and Delivery: Branch Testing
+# ======================================================
+
+
+---
+
+name: 🔁 Branch integration testing
+
+
+# Driving Event
+# -------------
+#
+# What event starts this workflow: a push to any branch other than main
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+# What to Do
+# ----------
+#
+# Test the software with tox
+
+jobs:
+    branch-testing:
+        name: 🪵 Branch Testing
+        runs-on: ubuntu-latest
+        if: github.actor != 'pdsen-ci'
+
+        steps:
+            -
+                name: 🩺 Test Registry Legacy
+                run:
+                  curl --get "https://pds.nasa.gov/services/search/search?wt=json&q=product_class:Product_Collection" | json_pp > tmp.txt
+                  if [ $? -ne  "0" ]; then
+                      echo "ERROR: LEGACY REGISTRY HAS CRASHED"
+                      exit 1
+                  fi
+                  
+                  numfound=$(egrep "numFound" tmp.txt | awk -F: '{print $NF}')
+                  echo $numfound
+                  if [ "$numfound" == " 0," ]; then
+                      echo "ERROR: LEGACY REGISTRY HAS NO DATA"
+                      exit 1
+                  fi
+                  
+                  exit 0
+                shell: bash
