@@ -23,15 +23,15 @@ on:
 # Test the software with tox
 
 jobs:
-    branch-testing:
-        name: 🪵 Branch Testing
+    test1:
+        name: Test Registry Legacy
         runs-on: ubuntu-latest
         if: github.actor != 'pdsen-ci'
 
         steps:
             -
                 name: 🩺 Test Registry Legacy
-                run:
+                run: |
                   curl --get "https://pds.nasa.gov/services/search/search?wt=json&q=product_class:Product_Collection" | json_pp > tmp.txt
                   if [ $? -ne  "0" ]; then
                       echo "ERROR - LEGACY REGISTRY HAS CRASHED"
