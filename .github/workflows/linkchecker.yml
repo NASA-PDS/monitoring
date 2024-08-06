@@ -55,7 +55,7 @@ jobs:
                     export XDG_DATA_HOME=$(pwd)
                     export LINKCHECKER_OUTDIR=${XDG_DATA_HOME}/linkchecker
                     echo "LINKCHECKER_OUTDIR=${LINKCHECKER_OUTDIR}" >> $GITHUB_OUTPUT
-                    linkchecker --file-output=failures
+                    linkchecker --file-output=failures https://pds.nasa.gov
 
                     if [ -f ${LINKCHECKER_OUTDIR}/failures ]; then
                       exit 1
