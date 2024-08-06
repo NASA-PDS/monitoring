@@ -65,6 +65,6 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: linkchecker-failures
-                path: ${{ env.LINKCHECKER_OUTDIR }}
+                path: ${{ LINKCHECKER_OUTDIR }}
                 if-no-files-found: ignore
               if: ${{ always() }}
