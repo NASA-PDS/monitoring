@@ -48,6 +48,7 @@ jobs:
                     restore-keys: pds-${{runner.os}}-py-
             -
                 name: 🩺 Install and Run linkchecker
+                id: checker
                 run: |
                     pip3 install linkchecker
 
@@ -65,6 +66,6 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: linkchecker-failures
-                path: ${{ LINKCHECKER_OUTDIR }}
+                path: ${{ steps.checker.outputs.LINKCHECKER_OUTDIR }}
                 if-no-files-found: ignore
               if: ${{ always() }}
