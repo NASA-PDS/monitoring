@@ -18,7 +18,6 @@ jobs:
       run:
         shell: bash
         working-directory: ./terraform/provenance-alarm
-    environment: NGAP DEV
     env:
       TF_LOG: INFO
 
